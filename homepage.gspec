@@ -1,0 +1,35 @@
+@objects
+    header          #header
+    logo            .logo
+    searchfield		#search_query_top
+    searchbutton	.button-search
+    cart			.shopping_cart
+    
+    menu            #block_top_menu
+        item-*      	ul.menu-content > li
+
+    
+= Icon and Caption =
+    logo:
+        width 350px
+        height 99px
+        inside header 118px top
+        
+= Search field Horizontally centered =
+	searchfield:
+		centered horizontally inside header
+		
+= Header contains right elements =
+	header:
+		contains logo, searchfield, searchbutton, cart
+        
+= Menu =
+    global:
+        count any menu.item-* is 4
+
+    menu.item-1:
+        inside menu 25px top
+
+    @forEach [menu.item-*] as menuItem, next as nextItem
+        ${menuItem}:
+            aligned horizontally all ${nextItem}
